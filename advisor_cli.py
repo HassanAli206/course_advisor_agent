@@ -2,11 +2,13 @@
 """
 Academic Advisor CLI
 Command-line interface for course recommendations
+HARDENED VERSION (Feasibility-safe, Final Year Courses)
 """
 
 import sys
 from pathlib import Path
 from tabulate import tabulate
+import os
 
 # Import our modules
 from src.data_loader import DataLoader
@@ -19,7 +21,6 @@ from src.explanation_generator import ExplanationGenerator
 
 def clear_screen():
     """Clear terminal screen"""
-    import os
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
@@ -123,14 +124,16 @@ def generate_recommendation(loader, risk_model, optimizer, explainer,
                            student_profile, show_comparison=True):
     """Generate and display recommendation"""
     
-    next_semester = student_profile['student']['current_semester'] + 1
+    # Correct semester handling: use target semester = current + 1
+    target_semester = student_profile['student']['current_semester'] + 1
+    student_profile['target_semester'] = target_semester
     
-    print(f"\n🔍 Finding eligible courses for Semester {next_semester}...")
+    print(f"\n🔍 Finding eligible courses for Semester {target_semester}...")
     
-    # Get eligible courses
+    # Get eligible courses up to the target semester (includes previous missed courses)
     eligible_df = loader.get_eligible_courses(
         student_profile['completed_courses'],
-        next_semester,
+        target_semester,
         student_profile['backlogs']
     )
     
@@ -146,7 +149,7 @@ def generate_recommendation(loader, risk_model, optimizer, explainer,
         eligible_df,
         student_profile,
         loader.prereq_graph,
-        next_semester
+        target_semester
     )
     
     # Generate recommendation
@@ -159,9 +162,8 @@ def generate_recommendation(loader, risk_model, optimizer, explainer,
     
     if recommended_df.empty:
         print(f"❌ Could not generate recommendation: {metadata.get('status', 'unknown')}")
+        input("\nPress Enter to continue...")
         return None, None
-    
-    print("✅ Recommendation generated!\n")
     
     # Display full report
     report = explainer.generate_full_report(
@@ -203,14 +205,14 @@ def show_multi_semester_plan(planner, student_profile, risk_model):
         print("-" * 60)
         
         if plan['courses']:
-            for code in plan['courses'][:8]:  # Show up to 8
+            for code in plan['courses'][:10]:  # Show up to 10 courses
                 course_name = planner.courses[
                     planner.courses['course_code'] == code
                 ]['course_name'].values[0]
                 print(f"   • {code}: {course_name}")
             
-            if len(plan['courses']) > 8:
-                print(f"   ... and {len(plan['courses']) - 8} more courses")
+            if len(plan['courses']) > 10:
+                print(f"   ... and {len(plan['courses']) - 10} more courses")
         else:
             print(f"   {plan.get('note', 'No courses planned')}")
         
@@ -306,8 +308,7 @@ def main_menu():
                     recommended_df, metadata = generate_recommendation(
                         loader, risk_model, optimizer, explainer, student_profile
                     )
-                    if recommended_df is not None:
-                        input("\nPress Enter to continue...")
+                    input("\nPress Enter to continue...")
                 
                 elif choice == '3':
                     clear_screen()

@@ -1,5 +1,11 @@
-student_id,current_semester,cgpa,batch
-CS2025-001,4,2.65,2025
-CS2025-002,5,3.45,2025
-CS2025-003,3,2.10,2025
-CS2025-004,6,3.80,2025
+student_id,current_semester,cgpa,total_credits_completed,total_backlogs,on_probation,max_credits_allowed
+CS2025-001,4,2.80,48,1,False,18
+CS2025-002,5,3.45,65,0,False,21
+CS2025-003,3,1.95,32,3,True,15
+CS2025-004,6,3.75,85,0,False,21
+CS2025-005,4,2.50,50,2,False,18
+CS2025-006,7,3.20,95,0,False,21
+CS2025-007,2,2.10,18,1,False,15
+CS2025-008,5,3.90,70,0,False,21
+CS2025-009,4,2.65,45,1,False,18
+CS2025-010,3,3.55,38,0,False,21
