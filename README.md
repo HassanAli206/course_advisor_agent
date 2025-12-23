@@ -363,12 +363,17 @@ Potential improvements:
 
 ## 👨‍💻 Author
 
-Your Name  
+Team:
+    
+    Hassan Ali 
+    Bisma Maheen 
+    Ayesha Mudasir 
+
 BS Computer Science  
 Air University  
 
 **Project:** Semester Project - Artificial Intelligence Course  
-**Supervisor:** [Advisor Name]  
+**Supervisor:** Dr: Wajid Ali  
 **Year:** 2024-2025
 
 ---
