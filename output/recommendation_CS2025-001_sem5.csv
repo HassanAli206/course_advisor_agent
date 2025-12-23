@@ -1,0 +1,4 @@
+course_code,course_name,credits,difficulty,category,semester,risk_score
+CS216,Data Structures,4,5,Computing Core,3,0.42478841464427397
+CS305,Software Engineering,3,4,Computing Core,5,0.2606047500601768
+EL400,Technical and Business Writing,3,2,Math & Supporting,5,0.06522882848339555

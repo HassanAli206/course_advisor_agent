@@ -1,0 +1,7 @@
+max_normal_credits,hard,18,Maximum credits without overload
+max_overload_credits,hard,21,Allowed if CGPA >= 3.0
+min_cgpa_overload,hard,3.0,Minimum CGPA for overload
+max_backlogs,hard,3,Max backlogs allowed per semester
+total_degree_credits,info,137,Total required for graduation
+internship_credits,info,3,Mandatory internship
+fyp_credits,info,6,Final Year Project total

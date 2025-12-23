@@ -1,0 +1,27 @@
+course_code,course_name,credits,difficulty,category,semester_offered
+CS111,Programming Fundamentals,4,3,Computing Core,1
+CS112,Object Oriented Programming,4,4,Computing Core,2
+EE123,Digital Logic Design,3,4,Computing Core,2
+CS130,Database Systems,4,4,Computing Core,3
+CS216,Data Structures,4,5,Computing Core,3
+CS215,Information Security,3,3,Computing Core,4
+CS260,Computer Networks,3,4,Computing Core,4
+CS226,Computer Organization and Assembly Language,3,5,Computing Core,4
+CS325,Operating Systems,3,5,Computing Core,5
+CS332,Design and Analysis of Algorithms,3,5,Computing Core,5
+CS344,Artificial Intelligence,3,4,Computing Core,6
+CS305,Software Engineering,3,4,Computing Core,5
+CS491,Final Year Project I,1,5,Computing Core,6
+CS492,Final Year Project II,2,5,Computing Core,7
+CS493,Final Year Project III,3,5,Computing Core,8
+CS333,Theory of Automata,3,5,Domain Core,4
+CS330,Advanced Database Systems,3,4,Domain Core,5
+CS426,Parallel and Distributed Computing,3,5,Domain Core,6
+CS434,Compiler Construction,3,5,Domain Core,7
+CS424,Computer Architecture,3,5,Domain Core,6
+CS474,HCI & Computer Graphics,3,4,Domain Core,7
+MA105,Multivariable Calculus,3,4,Math & Supporting,2
+MA201,Linear Algebra,3,4,Math & Supporting,3
+MA301,Probability and Statistics,3,4,Math & Supporting,4
+EL400,Technical and Business Writing,3,2,Math & Supporting,5
+MK101,Principles of Marketing,3,2,Elective Supporting,6
